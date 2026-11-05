@@ -1,0 +1,22 @@
+[
+  {"id":"zh-summary-1","category":"summary","prompt":"用 120 字以内总结这段内容：边缘网关需要同时处理蜂窝上行、LAN 交换、NAT 和本地策略路由。调试时应先确认接口与网桥成员，再检查路由表和 NAT 规则，最后抓包验证。"},
+  {"id":"zh-summary-2","category":"summary","prompt":"用三点总结 Linux 网桥收到未知单播帧后的处理流程，并说明 FDB 的作用。"},
+  {"id":"zh-json-1","category":"json","expectJson":true,"prompt":"只输出 JSON，不要 Markdown。字段：device(string), interfaces(array of string), healthy(boolean)。内容：一台网关有 eth0、eth1、brlan0，当前健康。"},
+  {"id":"zh-json-2","category":"json","expectJson":true,"prompt":"只输出 JSON 数组，不要解释。每项包含 vlan(number) 和 ports(array)。VLAN 10 包含 lan1、lan2；VLAN 20 包含 lan3。"},
+  {"id":"code-fix-1","category":"code","prompt":"这段 Shell 想查看默认路由，但输出为空：`ip route show default`。给出 3 个排查命令，并说明每个命令验证什么。"},
+  {"id":"code-fix-2","category":"code","prompt":"用 Python 写一个函数，读取 JSONL 文件并返回每个 session 的消息数。要求处理空行和坏 JSON，不依赖第三方库。"},
+  {"id":"net-diag-1","category":"network","prompt":"`ip rule` 有 `lookup 14`，但 `ip route show table 14` 为空。解释为什么流量仍可能正常，并给出验证命令。"},
+  {"id":"net-diag-2","category":"network","prompt":"`ip addr` 显示 `link/[519]`，接口有 IP 但没有 ARP。解释最可能的原因，以及它能否直接加入 br-lan。"},
+  {"id":"long-1","category":"long","prompt":"阅读以下规则并回答：规则 A 优先级高于 B；B 高于 C；C 只匹配 UDP。一个 TCP 包同时满足 A 和 C 的条件，最终匹配哪条？说明理由。"},
+  {"id":"long-2","category":"long","prompt":"比较 access 口和 trunk 口的收发标签行为，用表格说明 ingress 和 egress。"},
+  {"id":"tool-1","category":"tool","prompt":"你要调用一个只接受 JSON 的工具，参数是 city 和 days。请只输出合法 JSON，不要解释：查询西安未来 3 天天气。"},
+  {"id":"tool-2","category":"tool","prompt":"只输出一个 JSON 对象，字段 action=restart，target=wan，confirm=true。不要 Markdown。"},
+  {"id":"reason-1","category":"reasoning","prompt":"一个 1G 链路 iPerf3 只跑 300M。列出最值得先查的 4 个方向，并说明为什么不是先换网线。"},
+  {"id":"reason-2","category":"reasoning","prompt":"为什么 `ip addr add` 后会自动出现直连路由？请从地址、local 路由和 FIB 的关系解释。"},
+  {"id":"safe-1","category":"safety","prompt":"在远程 CPE 上准备执行 `ip addr flush dev br-lan`。给出执行前的安全检查清单，最多 5 条。"},
+  {"id":"safe-2","category":"safety","prompt":"为什么不能把 `iptables -F` 当成排查 NAT 的第一步？给出更安全的替代步骤。"},
+  {"id":"cn-1","category":"chinese","prompt":"把“策略路由查表失败后继续匹配下一条规则”改写成一句适合初学者理解的话。"},
+  {"id":"cn-2","category":"chinese","prompt":"用不超过 80 字解释 PVID 和 untagged 的区别。"},
+  {"id":"mixed-1","category":"mixed","prompt":"给出一份 30 分钟内的 OpenWrt 网络排障顺序，覆盖 link、bridge、route、NAT、抓包五层。"},
+  {"id":"mixed-2","category":"mixed","prompt":"设计一个验证 VLAN 10 是否端到端可达的最小实验，列出命令和预期结果。"}
+]

@@ -1,0 +1,12 @@
+{
+  "name": "deepseek-api-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bench": "bun src/bench.ts",
+    "dry": "bun src/bench.ts --dry-run"
+  },
+  "devDependencies": {
+    "@types/bun": "^1"
+  }
+}
